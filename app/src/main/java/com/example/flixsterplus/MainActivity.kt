@@ -1,9 +1,12 @@
 package com.example.flixsterplus
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -25,6 +28,9 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
         val client = AsyncHttpClient()
         val params = RequestParams()
         val moviesRecyclerView = findViewById<RecyclerView>(R.id.movies_recycler_view)
@@ -42,9 +48,12 @@ class MainActivity : AppCompatActivity() {
                 val arrayMovieType = object : TypeToken<List<MovieItem>>() {}.type
                 val models: List<MovieItem> = gson.fromJson(moviesRawJSON, arrayMovieType)
 
-                moviesRecyclerView.adapter = MoviesAdapter(models)
+                val isPortrait = resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
+                moviesRecyclerView.adapter = MoviesAdapter(isPortrait, models)
                 moviesRecyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
-
+                val itemDecoration: RecyclerView.ItemDecoration =
+                    DividerItemDecoration(this@MainActivity, DividerItemDecoration.VERTICAL)
+                moviesRecyclerView.addItemDecoration(itemDecoration)
             }
 
             override fun onFailure(

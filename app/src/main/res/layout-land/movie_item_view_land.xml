@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -5,11 +6,9 @@
     android:layout_height="wrap_content"
     android:padding="16dp">
 
-<!--    <include layout="@layout/movie_item_view_land" />-->
-
     <ImageView
         android:id="@+id/movie_image_view"
-        android:layout_width="100dp"
+        android:layout_width="250dp"
         android:layout_height="150dp"
         android:contentDescription="Movie poster image"
         app:layout_constraintBottom_toBottomOf="parent"
