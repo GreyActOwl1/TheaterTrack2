@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
+class MoviesAdapter(private val moviesList: List<MovieItem>) : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val movieImageView: ImageView = itemView.findViewById<ImageView>(R.id.movie_image_view)
@@ -26,17 +26,18 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MoviesAdapter.ViewHolder, position: Int) {
-         holder.movieTitle.text = MovieItem.title
-        holder.movieDescription.text = MovieItem.description
+        val movie = moviesList[position]
+         holder.movieTitle.text = movie.title
+        holder.movieDescription.text = movie.description
         Glide.with(holder.itemView)
-             .load(MovieItem.poster_url)
+             .load("https://image.tmdb.org/t/p/w500${movie.posterPath}")
             .placeholder(R.drawable.placeholder_300)
              .centerInside()
              .into(holder.movieImageView)
     }
 
     override fun getItemCount(): Int {
-       return 5
+       return moviesList.size
     }
 
 }
