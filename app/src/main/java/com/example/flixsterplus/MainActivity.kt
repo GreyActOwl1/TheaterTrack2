@@ -18,11 +18,12 @@ import com.google.gson.reflect.TypeToken
 
 import okhttp3.Headers
 import org.json.JSONArray
-import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
+    companion object {
+        private const val API_KEY = BuildConfig.MOVIES_DB_API_KEY
+    }
 
-    private val API_KEY = BuildConfig.MOVIES_DB_API_KEY
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        client["https://api.themoviedb.org/3/movie/now_playing?&api_key=" + API_KEY, params, object :
+        client["https://api.themoviedb.org/3/movie/now_playing?&api_key=${API_KEY}", params, object :
             JsonHttpResponseHandler() {
             override fun onSuccess(statusCode: Int, headers: Headers, json: JSON) {
                 Log.d("DEBUG OBJECT", json.jsonObject.toString())
@@ -48,7 +49,8 @@ class MainActivity : AppCompatActivity() {
                 val arrayMovieType = object : TypeToken<List<MovieItem>>() {}.type
                 val models: List<MovieItem> = gson.fromJson(moviesRawJSON, arrayMovieType)
 
-                val isPortrait = resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
+                val isPortrait =
+                    resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
                 moviesRecyclerView.adapter = MoviesAdapter(isPortrait, models)
                 moviesRecyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
                 val itemDecoration: RecyclerView.ItemDecoration =
@@ -68,10 +70,7 @@ class MainActivity : AppCompatActivity() {
             }
         }]
 
-
-
-
-
-
     }
+
+
 }

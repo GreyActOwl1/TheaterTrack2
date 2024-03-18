@@ -5,13 +5,13 @@
     android:layout_height="wrap_content"
     android:padding="16dp">
 
-<!--    <include layout="@layout/movie_item_view_land" />-->
+
 
     <ImageView
         android:id="@+id/movie_image_view"
         android:layout_width="100dp"
         android:layout_height="150dp"
-        android:contentDescription="Movie poster image"
+        android:contentDescription="@string/movie_image_description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,10 +23,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/movie_image_view"
         app:layout_constraintTop_toTopOf="parent"
-        android:textStyle="bold"
         tools:text="Movie Title" />
 
     <TextView
