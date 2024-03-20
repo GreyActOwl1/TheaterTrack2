@@ -12,11 +12,11 @@ apikeyProperties.load(FileInputStream(apikeyPropertiesFile))
 
 
 android {
-    namespace = "com.example.flixsterplus"
+    namespace = "com.example.flixsterplus2"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.flixsterplus"
+        applicationId = "com.example.flixsterplus2"
         minSdk = 31
         targetSdk = 34
         versionCode = 1

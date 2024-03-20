@@ -20,6 +20,9 @@ import okhttp3.Headers
 import org.json.JSONArray
 
 class MainActivity : AppCompatActivity() {
+    //TODO: Add debug tags
+    // TODO: Update Readme.md
+    // TODO: Add NavBar
     companion object {
         private const val API_KEY = BuildConfig.MOVIES_DB_API_KEY
     }
@@ -41,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         client["https://api.themoviedb.org/3/movie/now_playing?&api_key=${API_KEY}", params, object :
             JsonHttpResponseHandler() {
             override fun onSuccess(statusCode: Int, headers: Headers, json: JSON) {
+                //TODO: Refactor with Retrofit and Gson
                 Log.d("DEBUG OBJECT", json.jsonObject.toString())
                 val resultsJSON: JSONArray = json.jsonObject.get("results") as JSONArray
                 val moviesRawJSON: String = resultsJSON.toString()
@@ -51,11 +55,13 @@ class MainActivity : AppCompatActivity() {
 
                 val isPortrait =
                     resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
-                moviesRecyclerView.adapter = MoviesAdapter(isPortrait, models)
-                moviesRecyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
-                val itemDecoration: RecyclerView.ItemDecoration =
-                    DividerItemDecoration(this@MainActivity, DividerItemDecoration.VERTICAL)
-                moviesRecyclerView.addItemDecoration(itemDecoration)
+
+                moviesRecyclerView.apply {
+                    adapter = MoviesAdapter(isPortrait, models)
+                    layoutManager = LinearLayoutManager(this@MainActivity)
+                    addItemDecoration(DividerItemDecoration(this@MainActivity, DividerItemDecoration.VERTICAL))
+                }
+
             }
 
             override fun onFailure(
@@ -69,7 +75,8 @@ class MainActivity : AppCompatActivity() {
                 Log.d("DEBUG", response)
             }
         }]
-
+        //TODO: Add infinite scroll
+        //TODO: (Optional) If time allows migrate secrets
     }
 
 

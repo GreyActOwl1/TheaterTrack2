@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 
 class MoviesAdapter(private val isPortrait: Boolean, private val moviesList: List<MovieItem>) :
     RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
-
+//TODO: Add debug tags
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val movieImageView: ImageView = itemView.findViewById(R.id.movie_image_view)
@@ -47,13 +47,13 @@ class MoviesAdapter(private val isPortrait: Boolean, private val moviesList: Lis
         holder.movieDescription.text = movie.description
         if (isPortrait) {
             Glide.with(holder.itemView)
-                .load("https://image.tmdb.org/t/p/w500${movie.posterPath}")
+                .load(movie.posterImageUrl)
                 .placeholder(R.drawable.placeholder_300)
                 .centerInside()
                 .into(holder.movieImageView)
         } else {
             Glide.with(holder.itemView)
-                .load("https://image.tmdb.org/t/p/w500${movie.backdropPath}")
+                .load(movie.backdropImageUrl)
                 .placeholder(R.drawable.placeholder_300)
                 .centerInside()
                 .into(holder.movieImageView)

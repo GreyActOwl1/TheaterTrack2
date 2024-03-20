@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "TheaterTrack"
+rootProject.name = "TheaterTrack2"
 include(":app")
  
