@@ -1,4 +1,4 @@
-package com.example.flixsterplus
+package com.example.flixsterplus2
 
 import com.google.gson.annotations.SerializedName
 

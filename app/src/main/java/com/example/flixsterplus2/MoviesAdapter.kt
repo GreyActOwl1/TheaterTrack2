@@ -1,4 +1,4 @@
-package com.example.flixsterplus
+package com.example.flixsterplus2
 
 import android.view.LayoutInflater
 import android.view.View

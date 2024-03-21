@@ -1,4 +1,4 @@
-package com.example.flixsterplus
+package com.example.flixsterplus2
 
 import android.content.res.Configuration
 import android.os.Bundle
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        client["https://api.themoviedb.org/3/movie/now_playing?&api_key=${API_KEY}", params, object :
+            client["https://api.themoviedb.org/3/movie/now_playing?&api_key=${API_KEY}", params, object :
             JsonHttpResponseHandler() {
             override fun onSuccess(statusCode: Int, headers: Headers, json: JSON) {
                 //TODO: Refactor with Retrofit and Gson
