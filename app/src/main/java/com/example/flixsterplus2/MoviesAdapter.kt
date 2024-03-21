@@ -8,9 +8,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
+private const val TAG = "MoviesAdapter"
 class MoviesAdapter(private val isPortrait: Boolean, private val moviesList: List<MovieItem>) :
     RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
-//TODO: Add debug tags
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val movieImageView: ImageView = itemView.findViewById(R.id.movie_image_view)
@@ -24,6 +24,7 @@ class MoviesAdapter(private val isPortrait: Boolean, private val moviesList: Lis
         viewType: Int
     ): MoviesAdapter.ViewHolder {
 
+        //TODO: Add onClickListener to the ViewHolder
         // Check if the orientation is landscape
         return if (isPortrait) {
             // Inflate default layout (portrait)
@@ -63,5 +64,7 @@ class MoviesAdapter(private val isPortrait: Boolean, private val moviesList: Lis
     override fun getItemCount(): Int {
         return moviesList.size
     }
+
+
 
 }

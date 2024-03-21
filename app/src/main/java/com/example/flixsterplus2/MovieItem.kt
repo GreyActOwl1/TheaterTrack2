@@ -4,8 +4,12 @@ import com.google.gson.annotations.SerializedName
 
 
 class MovieItem {
-    @SerializedName("original_title")
-    var title: String? = null
+
+    // Movie
+    var original_title: String? = null
+
+    //TV Show
+    var original_name: String? = null
 
     @SerializedName("overview")
     var description: String? = null
@@ -21,6 +25,9 @@ class MovieItem {
 
     val backdropImageUrl : String
         get()  = backdropPath.let { path -> "https://image.tmdb.org/t/p/w342/${path}"}
+
+    val title : String
+        get() = original_title ?: original_name ?: "DEFAULT TITLE"
 
 
 }
