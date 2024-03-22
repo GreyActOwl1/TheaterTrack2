@@ -1,4 +1,4 @@
-# Android Project 4 - *Name of App Here*
+# Android Project 4 - TheaterTrack II
 
 Submitted by: Adrian Eastmond
 
