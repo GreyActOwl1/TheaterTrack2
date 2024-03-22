@@ -1,6 +1,5 @@
 package com.example.flixsterplus2
 
-import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
@@ -10,43 +9,34 @@ import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.RequestParams
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-
 import okhttp3.Headers
 import org.json.JSONArray
 
-private const val TAG = "MainActivity/ "
+private const val TAG = "TvActivity"
 
-class MainActivity : AppCompatActivity() {
-    // TODO: Update Readme.md
-    // TODO: Add NavBar
-    companion object {
-        const val API_KEY = BuildConfig.MOVIES_DB_API_KEY
-    }
+class TvActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-
+        setContentView(R.layout.activity_tv)
+//TODO: Refactor Toolbar
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        val TvIntent = Intent(this, TvActivity::class.java)
-        startActivity(TvIntent)
-
         val client = AsyncHttpClient()
         val params = RequestParams()
+        //TODO: Refactor Movie to TV
         val moviesRecyclerView = findViewById<RecyclerView>(R.id.movies_recycler_view)
 
 
 
-            client["https://api.themoviedb.org/3/movie/now_playing?&api_key=$API_KEY", params, object :
+        client["https://api.themoviedb.org/3/tv/popular?page=1&api_key=${MainActivity.API_KEY}", params, object :
             JsonHttpResponseHandler() {
             override fun onSuccess(statusCode: Int, headers: Headers, json: JSON) {
                 //TODO: Refactor with Retrofit and Gson
@@ -62,9 +52,9 @@ class MainActivity : AppCompatActivity() {
                     resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
 
                 moviesRecyclerView.apply {
-                    adapter = MoviesAdapter(this@MainActivity,isPortrait, models)
-                    layoutManager = LinearLayoutManager(this@MainActivity)
-                    addItemDecoration(DividerItemDecoration(this@MainActivity, DividerItemDecoration.VERTICAL))
+                    adapter = MoviesAdapter(this@TvActivity, isPortrait, models)
+                    layoutManager = LinearLayoutManager(this@TvActivity)
+                    addItemDecoration(DividerItemDecoration(this@TvActivity, DividerItemDecoration.VERTICAL))
                 }
 
             }
@@ -77,13 +67,10 @@ class MainActivity : AppCompatActivity() {
 
             ) {
 
-                Log.d(TAG, "https://api.themoviedb.org/3/movie/now_playing&api_key=$API_KEY")
+                Log.d(TAG, "https://api.themoviedb.org/3/tv/popular?page=1&api_key=${MainActivity.API_KEY}")
                 Log.d(TAG, response)
             }
         }]
-        //TODO: Add infinite scroll
-        //TODO: (Optional) If time allows migrate secrets
     }
-
 
 }
