@@ -1,8 +1,5 @@
 package com.example.flixsterplus2
 
-import android.content.Context
-import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,30 +8,15 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-private const val TAG = "MoviesAdapter"
-class MoviesAdapter(val context: Context, private val isPortrait: Boolean, private val moviesList: List<MovieItem>) :
+class MoviesAdapter(private val isPortrait: Boolean, private val moviesList: List<MovieItem>) :
     RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
+//TODO: Add debug tags
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val movieImageView: ImageView = itemView.findViewById(R.id.movie_image_view)
         val movieTitle: TextView = itemView.findViewById(R.id.movie_title_text_view)
         val movieDescription: TextView =
             itemView.findViewById(R.id.movie_description_text_view)
-        init {
-            itemView.setOnClickListener(this)
-        }
-        override fun onClick(v: View?) {
-            //TODO: Add onClickListener to the ViewHolder
-            Log.d(TAG, "onClick: clicked on ${movieTitle.text}")
-
-            val movie = moviesList[adapterPosition]
-
-            val intent = Intent(context, MediaDetailActivity::class.java)
-            intent.putExtra("MEDIA_ITEM", movie)
-            context.startActivity(intent)
-
-
-        }
     }
 
     override fun onCreateViewHolder(
@@ -42,8 +24,7 @@ class MoviesAdapter(val context: Context, private val isPortrait: Boolean, priva
         viewType: Int
     ): MoviesAdapter.ViewHolder {
 
-
-        //TODO: Check if the orientation is landscape
+        // Check if the orientation is landscape
         return if (isPortrait) {
             // Inflate default layout (portrait)
             ViewHolder(
@@ -63,7 +44,7 @@ class MoviesAdapter(val context: Context, private val isPortrait: Boolean, priva
     override fun onBindViewHolder(holder: MoviesAdapter.ViewHolder, position: Int) {
         val movie = moviesList[position]
         holder.movieTitle.text = movie.title
-//        holder.movieDescription.text = movie.description
+        holder.movieDescription.text = movie.description
         if (isPortrait) {
             Glide.with(holder.itemView)
                 .load(movie.posterImageUrl)
@@ -82,7 +63,5 @@ class MoviesAdapter(val context: Context, private val isPortrait: Boolean, priva
     override fun getItemCount(): Int {
         return moviesList.size
     }
-
-
 
 }

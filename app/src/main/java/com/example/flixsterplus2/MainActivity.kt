@@ -1,6 +1,5 @@
 package com.example.flixsterplus2
 
-import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
@@ -20,13 +19,12 @@ import com.google.gson.reflect.TypeToken
 import okhttp3.Headers
 import org.json.JSONArray
 
-private const val TAG = "MainActivity/ "
-
 class MainActivity : AppCompatActivity() {
+    //TODO: Add debug tags
     // TODO: Update Readme.md
     // TODO: Add NavBar
     companion object {
-        const val API_KEY = BuildConfig.MOVIES_DB_API_KEY
+        private const val API_KEY = BuildConfig.MOVIES_DB_API_KEY
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,20 +35,17 @@ class MainActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        val TvIntent = Intent(this, TvActivity::class.java)
-        startActivity(TvIntent)
-
         val client = AsyncHttpClient()
         val params = RequestParams()
         val moviesRecyclerView = findViewById<RecyclerView>(R.id.movies_recycler_view)
 
 
 
-            client["https://api.themoviedb.org/3/movie/now_playing?&api_key=$API_KEY", params, object :
+            client["https://api.themoviedb.org/3/movie/now_playing?&api_key=${API_KEY}", params, object :
             JsonHttpResponseHandler() {
             override fun onSuccess(statusCode: Int, headers: Headers, json: JSON) {
                 //TODO: Refactor with Retrofit and Gson
-                Log.d(TAG, json.jsonObject.toString())
+                Log.d("DEBUG OBJECT", json.jsonObject.toString())
                 val resultsJSON: JSONArray = json.jsonObject.get("results") as JSONArray
                 val moviesRawJSON: String = resultsJSON.toString()
 
@@ -62,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                     resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
 
                 moviesRecyclerView.apply {
-                    adapter = MoviesAdapter(this@MainActivity,isPortrait, models)
+                    adapter = MoviesAdapter(isPortrait, models)
                     layoutManager = LinearLayoutManager(this@MainActivity)
                     addItemDecoration(DividerItemDecoration(this@MainActivity, DividerItemDecoration.VERTICAL))
                 }
@@ -77,8 +72,7 @@ class MainActivity : AppCompatActivity() {
 
             ) {
 
-                Log.d(TAG, "https://api.themoviedb.org/3/movie/now_playing&api_key=$API_KEY")
-                Log.d(TAG, response)
+                Log.d("DEBUG", response)
             }
         }]
         //TODO: Add infinite scroll
