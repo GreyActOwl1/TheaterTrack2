@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
                     resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
 
                 moviesRecyclerView.apply {
-                    adapter = MoviesAdapter(isPortrait, models)
+                    adapter = MoviesAdapter(this@MainActivity,isPortrait, models)
                     layoutManager = LinearLayoutManager(this@MainActivity)
                     addItemDecoration(DividerItemDecoration(this@MainActivity, DividerItemDecoration.VERTICAL))
                 }
