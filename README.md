@@ -1,16 +1,16 @@
-# Android Project 4 - *Name of App Here*
+# Android Project 4 - TheaterTrack II
 
-Submitted by: Adrian
+Submitted by: Adrian Eastmond
 
-TheaterTrack II is a movie browsing app that allows users to browse ... [TODO]
+TheaterTrack is a movie-browsing app that allows users to browse movies currently playing in theaters and TV shows.
 
-Time spent: 4 hours spent in total
+Time spent: 5 hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [X] **Choose any endpoint on The MovieDB API except `now_playing`**
+- [X] **Choose any endpoint on The MovieDB API except **`now_playing`****
   - Chosen Endpoint: `tv/popular`
 - [X] **Make a request to your chosen endpoint and implement a RecyclerView to display all entries**
 - [X] **Use Glide to load and display at least one image per entry**
@@ -38,8 +38,6 @@ GIF created with ...
 
 
 ## Notes
-
-Describe any challenges encountered while building the app.
 
 ## License
 
