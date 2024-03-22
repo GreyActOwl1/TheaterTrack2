@@ -1,8 +1,8 @@
 # Android Project 4 - *Name of App Here*
 
-Submitted by: Adrian
+Submitted by: Adrian Eastmond
 
-TheaterTrack II is a movie browsing app that allows users to browse ... [TODO]
+TheaterTrack is a movie-browsing app that allows users to browse movies currently playing in theaters and TV shows.
 
 Time spent: 4 hours spent in total
 
