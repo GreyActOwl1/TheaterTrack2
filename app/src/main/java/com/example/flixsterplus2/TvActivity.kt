@@ -1,8 +1,10 @@
 package com.example.flixsterplus2
 
+import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.RequestParams
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import okhttp3.Headers
@@ -29,9 +32,31 @@ class TvActivity: AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
+        // TODO: Refactor - setOnNavigationItemSelectedListener is deprecated
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNavigationView.selectedItemId = R.id.nav_tv
+        bottomNavigationView.setOnNavigationItemSelectedListener{ item ->
+            when(item.itemId) {
+                R.id.nav_movies -> {
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_tv -> {
+
+                    Toast.makeText(this, "Scroll for more TV Shows", Toast.LENGTH_SHORT).show()
+
+                    // Do Nothing - This is the current activity
+                    true
+                }
+                else -> false
+            }
+        }
+
         val client = AsyncHttpClient()
         val params = RequestParams()
         //TODO: Refactor Movie to TV
+
         val moviesRecyclerView = findViewById<RecyclerView>(R.id.movies_recycler_view)
 
 

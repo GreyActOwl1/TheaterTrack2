@@ -25,6 +25,7 @@ class MediaDetailActivity: AppCompatActivity() {
         val media = intent.getSerializableExtra("MEDIA_ITEM") as MovieItem
 
         //TODO:Add API call for more details
+        //TODO:Edit layout to show more details
 
 
         titleTextView.text = media.title
