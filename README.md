@@ -1,20 +1,20 @@
-# Android Project 4 - *Name of App Here*
+# Android Project 4 - TheaterTrack II
 
-Submitted by: **Your Name Here**
+Submitted by: Adrian Eastmond
 
-**Name of your app** is a movie browsing app that allows users to browse ... [TODO]
+TheaterTrack is a movie-browsing app that allows users to browse movies currently playing in theaters and TV shows.
 
-Time spent: **X** hours spent in total
+Time spent: 6 hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [ ] **Choose any endpoint on The MovieDB API except `now_playing`**
-  - Chosen Endpoint: `[TODO: FILL ME IN TO GET CREDIT]`
-- [] **Make a request to your chosen endpoint and implement a RecyclerView to display all entries**
-- [ ] **Use Glide to load and display at least one image per entry**
-- [ ] **Click on an entry to view specific details about that entry using Intents**
+- [X] **Choose any endpoint on The MovieDB API except **`now_playing`****
+  - Chosen Endpoint: **`tv/popular`**
+- [X] **Make a request to your chosen endpoint and implement a RecyclerView to display all entries**
+- [X] **Use Glide to load and display at least one image per entry**
+- [X] **Click on an entry to view specific details about that entry using Intents**
 
 The following **optional** features are implemented:
 
@@ -30,22 +30,18 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/IzMOT2n.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...
-<!-- Recommended tools:
-[Kap](https://getkap.co/) for macOS
+GIF created with 
 [ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
+
 
 ## Notes
 
-Describe any challenges encountered while building the app.
-
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
