@@ -15,7 +15,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_gallery" />
+        app:srcCompat="@android:drawable/ic_menu_gallery"
+        android:transitionName="transition_media_image"/>
 
     <TextView
         android:id="@+id/media_title_text_view"
@@ -27,7 +28,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/media_image_view"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Movie Title" />
+        tools:text="Movie Title"
+        android:transitionName="transition_media_title"/>
 
     <TextView
         android:id="@+id/media_description_text_view"
