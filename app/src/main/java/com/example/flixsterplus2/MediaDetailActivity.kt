@@ -18,11 +18,11 @@ class MediaDetailActivity: AppCompatActivity() {
         val titleTextView = findViewById<TextView>(R.id.mediaTitleView)
 //       val taglineTextView = findViewById<TextView>(R.id.taglineTextView)
        val lastAirDateTextView = findViewById<TextView>(R.id.lastAirDateTextView)
-        val descriptionTextView = findViewById<TextView>(R.id.movie_description_text_view)
+        val descriptionTextView = findViewById<TextView>(R.id.media_description_text_view)
         // Included for future use
 //       val nextAirDateTextView = findViewById<TextView>(R.id.nextAirDateTextView)
 
-        val media = intent.getSerializableExtra("MEDIA_ITEM") as MovieItem
+        val media = intent.getSerializableExtra("MEDIA_ITEM") as MediaItem
 
         //TODO:Add API call for more details
         //TODO:Edit layout to show more details

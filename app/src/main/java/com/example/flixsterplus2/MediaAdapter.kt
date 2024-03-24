@@ -11,15 +11,15 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-private const val TAG = "MoviesAdapter"
-class MoviesAdapter(val context: Context, private val isPortrait: Boolean, private val moviesList: List<MovieItem>) :
-    RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
+private const val TAG = "MediaAdapter"
+class MediaAdapter(val context: Context, private val isPortrait: Boolean, private val moviesList: List<MediaItem>) :
+    RecyclerView.Adapter<MediaAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
-        val movieImageView: ImageView = itemView.findViewById(R.id.movie_image_view)
-        val movieTitle: TextView = itemView.findViewById(R.id.movie_title_text_view)
+        val movieImageView: ImageView = itemView.findViewById(R.id.media_image_view)
+        val movieTitle: TextView = itemView.findViewById(R.id.media_title_text_view)
         val movieDescription: TextView =
-            itemView.findViewById(R.id.movie_description_text_view)
+            itemView.findViewById(R.id.media_description_text_view)
         init {
             itemView.setOnClickListener(this)
         }
@@ -40,27 +40,27 @@ class MoviesAdapter(val context: Context, private val isPortrait: Boolean, priva
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): MoviesAdapter.ViewHolder {
+    ): MediaAdapter.ViewHolder {
 
 
         //TODO: Check if the orientation is landscape
         return if (isPortrait) {
             // Inflate default layout (portrait)
             ViewHolder(
-                LayoutInflater.from(parent.context).inflate(R.layout.movie_item_view, parent, false))
+                LayoutInflater.from(parent.context).inflate(R.layout.media_item_view, parent, false))
 
         } else {
             // Inflate landscape layout
             ViewHolder(
                 LayoutInflater.from(parent.context)
-                    .inflate(R.layout.movie_item_view_land, parent, false))
+                    .inflate(R.layout.media_item_view_land, parent, false))
 
         }
 
 
     }
 
-    override fun onBindViewHolder(holder: MoviesAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MediaAdapter.ViewHolder, position: Int) {
         val movie = moviesList[position]
         holder.movieTitle.text = movie.title
 //        holder.movieDescription.text = movie.description

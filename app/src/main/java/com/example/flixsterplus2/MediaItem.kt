@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 @Keep
-data class MovieItem (
+data class MediaItem (
     // Movie
     var original_title: String? = null, //alternate = original_name
 

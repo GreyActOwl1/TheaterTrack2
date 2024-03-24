@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -5,37 +6,35 @@
     android:layout_height="wrap_content"
     android:padding="16dp">
 
-
-
     <ImageView
-        android:id="@+id/movie_image_view"
-        android:layout_width="100dp"
+        android:id="@+id/media_image_view"
+        android:layout_width="250dp"
         android:layout_height="150dp"
-        android:contentDescription="@string/movie_image_description"
+        android:contentDescription="Movie poster image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
     <TextView
-        android:id="@+id/movie_title_text_view"
+        android:id="@+id/media_title_text_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/movie_image_view"
+        app:layout_constraintStart_toEndOf="@+id/media_image_view"
         app:layout_constraintTop_toTopOf="parent"
+        android:textStyle="bold"
         tools:text="Movie Title" />
 
     <TextView
-        android:id="@+id/movie_description_text_view"
+        android:id="@+id/media_description_text_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/movie_title_text_view"
-        app:layout_constraintStart_toStartOf="@+id/movie_title_text_view"
-        app:layout_constraintTop_toBottomOf="@+id/movie_title_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/media_title_text_view"
+        app:layout_constraintStart_toStartOf="@+id/media_title_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/media_title_text_view"
         tools:text="Description text goes here" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -70,14 +70,14 @@ class TvActivity: AppCompatActivity() {
                 val moviesRawJSON: String = resultsJSON.toString()
 
                 val gson = Gson()
-                val arrayMovieType = object : TypeToken<List<MovieItem>>() {}.type
-                val models: List<MovieItem> = gson.fromJson(moviesRawJSON, arrayMovieType)
+                val arrayMovieType = object : TypeToken<List<MediaItem>>() {}.type
+                val models: List<MediaItem> = gson.fromJson(moviesRawJSON, arrayMovieType)
 
                 val isPortrait =
                     resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
 
                 moviesRecyclerView.apply {
-                    adapter = MoviesAdapter(this@TvActivity, isPortrait, models)
+                    adapter = MediaAdapter(this@TvActivity, isPortrait, models)
                     layoutManager = LinearLayoutManager(this@TvActivity)
                     addItemDecoration(DividerItemDecoration(this@TvActivity, DividerItemDecoration.VERTICAL))
                 }
