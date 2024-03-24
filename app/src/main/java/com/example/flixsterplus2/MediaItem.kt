@@ -7,10 +7,12 @@ import java.io.Serializable
 @Keep
 data class MediaItem (
     // Movie
-    var original_title: String? = null, //alternate = original_name
+    @SerializedName("original_title")
+    var originalTitle: String? = null, //alternate = original_name
 
     //TV Show
-    var original_name: String? = null,
+    @SerializedName("original_name")
+    var originalName: String? = null,
 
     @SerializedName("overview")
     var description: String? = null,
@@ -21,20 +23,30 @@ data class MediaItem (
     @SerializedName("backdrop_path")
     var backdropPath: String? = null,
 
+    @SerializedName("release_date")
+    var releaseDate: String? = null,
 
-    var first_air_date: String? = null
+    @SerializedName("first_air_date")
+    var firstAirDate: String? = null
+
+
+
 ) : Serializable {
-    val posterImageUrl : String
-        get() = posterPath.let { path -> "https://image.tmdb.org/t/p/w342/${path}"}
+    val posterImageUrl: String
+        get() = posterPath.let { path -> "https://image.tmdb.org/t/p/w342/${path}" }
 
-    val backdropImageUrl : String
-        get()  = backdropPath.let { path -> "https://image.tmdb.org/t/p/w342/${path}"}
+    val backdropImageUrl: String
+        get() = backdropPath.let { path -> "https://image.tmdb.org/t/p/w342/${path}" }
 
-    val title : String
-        get() = original_title ?: original_name ?: "DEFAULT TITLE"
+    val title: String
+        get() = originalTitle ?: originalName ?: "DEFAULT TITLE"
 
-    val lastAirDate : String
-        get() = first_air_date.let { date -> "First Air Date: ${date}" }
+    val displayDate: String
+    get() = when {
+        !releaseDate.isNullOrEmpty() -> "Release Date: $releaseDate"
+        !firstAirDate.isNullOrEmpty() -> "First Air Date: $firstAirDate"
+        else -> "N/A"
+    }
 }
 
 /*

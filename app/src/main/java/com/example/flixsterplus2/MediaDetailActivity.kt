@@ -29,7 +29,7 @@ class MediaDetailActivity: AppCompatActivity() {
 
 
         titleTextView.text = media.title
-        lastAirDateTextView.text = media.lastAirDate
+        lastAirDateTextView.text = media.displayDate
         descriptionTextView.text = media.description
         // Included for future use
 //        nextAirDateTextView.text = media.nextAirDate
