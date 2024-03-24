@@ -38,15 +38,18 @@ class MediaAdapter(val context: Context, private val isPortrait: Boolean, privat
                 putExtra("MEDIA_ITEM", movie)
             }
 
-            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                context as Activity,
-                UtilPair(itemView.findViewById<View>(R.id.media_image_view), mediaImageView.transitionName),
-                UtilPair(itemView.findViewById<View>(R.id.media_title_text_view), mediaTitle.transitionName),
+if (isPortrait) {
+    val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+        context as Activity,
+        UtilPair(itemView.findViewById<View>(R.id.media_image_view), mediaImageView.transitionName),
+        UtilPair(itemView.findViewById<View>(R.id.media_title_text_view), mediaTitle.transitionName),
 
-            )
+        )
 
-            context.startActivity(intent, options.toBundle())
-
+    context.startActivity(intent, options.toBundle())
+} else {
+    context.startActivity(intent)
+}
 
         }
     }
