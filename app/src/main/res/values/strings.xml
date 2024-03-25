@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">TheaterTrack2</string>
-    <string name="movie_image_description">Movie poster image</string>
+    <string name="media_image_description">Media poster image</string>
 </resources>

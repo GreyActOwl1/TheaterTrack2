@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.RequestParams
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
@@ -37,8 +39,26 @@ class MainActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        val TvIntent = Intent(this, TvActivity::class.java)
-        startActivity(TvIntent)
+        // TODO: Refactor - setOnNavigationItemSelectedListener is deprecated
+
+         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNavigationView.selectedItemId = R.id.nav_movies
+        bottomNavigationView.setOnNavigationItemSelectedListener{ item ->
+            when(item.itemId) {
+                R.id.nav_movies -> {
+                    Toast.makeText(this, "Scroll for more Movies", Toast.LENGTH_SHORT).show()
+                    // Do Nothing - This is the current activity
+                    true
+                }
+                R.id.nav_tv -> {
+                    val TvIntent = Intent(this, TvActivity::class.java)
+                    startActivity(TvIntent)
+                    true
+                }
+                else -> false
+            }
+        }
+
 
         val client = AsyncHttpClient()
         val params = RequestParams()
@@ -55,14 +75,14 @@ class MainActivity : AppCompatActivity() {
                 val moviesRawJSON: String = resultsJSON.toString()
 
                 val gson = Gson()
-                val arrayMovieType = object : TypeToken<List<MovieItem>>() {}.type
-                val models: List<MovieItem> = gson.fromJson(moviesRawJSON, arrayMovieType)
+                val arrayMovieType = object : TypeToken<List<MediaItem>>() {}.type
+                val models: List<MediaItem> = gson.fromJson(moviesRawJSON, arrayMovieType)
 
                 val isPortrait =
                     resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
 
                 moviesRecyclerView.apply {
-                    adapter = MoviesAdapter(this@MainActivity,isPortrait, models)
+                    adapter = MediaAdapter(this@MainActivity,isPortrait, models)
                     layoutManager = LinearLayoutManager(this@MainActivity)
                     addItemDecoration(DividerItemDecoration(this@MainActivity, DividerItemDecoration.VERTICAL))
                 }

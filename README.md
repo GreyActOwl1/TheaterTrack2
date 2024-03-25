@@ -4,14 +4,16 @@ Submitted by: Adrian Eastmond
 
 TheaterTrack is a movie-browsing app that allows users to browse movies currently playing in theaters and TV shows.
 
-Time spent: 5 hours spent in total
+
+Time spent: 6 hours spent in total
+
 
 ## Required Features
 
 The following **required** functionality is completed:
 
 - [X] **Choose any endpoint on The MovieDB API except **`now_playing`****
-  - Chosen Endpoint: `tv/popular`
+  - Chosen Endpoint: **`tv/popular`**
 - [X] **Make a request to your chosen endpoint and implement a RecyclerView to display all entries**
 - [X] **Use Glide to load and display at least one image per entry**
 - [X] **Click on an entry to view specific details about that entry using Intents**
@@ -29,11 +31,12 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-s
+
+
 <img src='https://i.imgur.com/IzMOT2n.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...
+GIF created with
 [ScreenToGif](https://www.screentogif.com/) for Windows
 
 

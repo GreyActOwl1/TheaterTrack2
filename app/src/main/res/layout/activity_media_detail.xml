@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".MediaDetailActivity">
 
     <ImageView
-        android:id="@+id/mediaImageView"
+        android:id="@+id/mediaBackdropImageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:contentDescription="TODO"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/avatars[0]" />
+
 
     <TextView
-        android:id="@+id/mediaTitleView"
+        android:id="@+id/media_title_text_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -27,62 +28,77 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
         android:textColor="#000000"
         android:textStyle="bold"
+        android:transitionName="transition_media_title"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mediaImageView" />
+        app:layout_constraintStart_toEndOf="@+id/mediaPosterImageView"
+        app:layout_constraintTop_toTopOf="@+id/mediaPosterImageView"
+        tools:text="Movie Title" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/taglineTextView"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="10dp"-->
-<!--        android:layout_marginTop="5dp"-->
-<!--        android:layout_marginEnd="10dp"-->
-<!--        android:text="Tagline"-->
-<!--        android:textAppearance="@style/TextAppearance.AppCompat.Small"-->
-<!--        android:textColor="#000000"-->
-<!--        android:textStyle="bold"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/mediaTitleView" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/taglineTextView"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="10dp"-->
+    <!--        android:layout_marginTop="5dp"-->
+    <!--        android:layout_marginEnd="10dp"-->
+    <!--        android:text="Tagline"-->
+    <!--        android:textAppearance="@style/TextAppearance.AppCompat.Small"-->
+    <!--        android:textColor="#000000"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/mediaTitleView" />-->
 
     <TextView
         android:id="@+id/lastAirDateTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
         android:text="Last Aired: 2019?"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mediaTitleView" />
+        app:layout_constraintStart_toStartOf="@+id/media_title_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/media_title_text_view" />
 
 
     <TextView
-        android:id="@+id/movie_description_text_view"
+        android:id="@+id/media_description_text_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/lastAirDateTextView"
         app:layout_constraintTop_toBottomOf="@+id/lastAirDateTextView"
         tools:text="Description text goes here" />
 
-<!--    Included for Future Use-->
-<!--    <TextView-->
-<!--        android:id="@+id/nextAirDateTextView"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="10dp"-->
-<!--        android:layout_marginTop="5dp"-->
-<!--        android:layout_marginEnd="10dp"-->
-<!--        android:text="Next Aired: 2025?"-->
-<!--        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"-->
-<!--        android:textColor="#000000"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/lastAirDateTextView" />-->
+    <ImageView
+        android:id="@+id/mediaPosterImageView"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/media_image_description"
+        android:transitionName="transition_media_image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mediaBackdropImageView"
+        app:layout_constraintVertical_bias="0.0"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <!--    Included for Future Use-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/nextAirDateTextView"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="10dp"-->
+    <!--        android:layout_marginTop="5dp"-->
+    <!--        android:layout_marginEnd="10dp"-->
+    <!--        android:text="Next Aired: 2025?"-->
+    <!--        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"-->
+    <!--        android:textColor="#000000"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/lastAirDateTextView" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
