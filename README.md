@@ -4,7 +4,9 @@ Submitted by: Adrian Eastmond
 
 TheaterTrack is a movie-browsing app that allows users to browse movies currently playing in theaters and TV shows.
 
+
 Time spent: 6 hours spent in total
+
 
 ## Required Features
 
@@ -30,10 +32,11 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
+
 <img src='https://i.imgur.com/IzMOT2n.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with 
+GIF created with
 [ScreenToGif](https://www.screentogif.com/) for Windows
 
 
