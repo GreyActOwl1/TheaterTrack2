@@ -5,7 +5,7 @@ Submitted by: Adrian Eastmond
 TheaterTrack is a movie-browsing app that allows users to browse movies currently playing in theaters and TV shows.
 
 
-Time spent: 6 hours spent in total
+Time spent: 8 hours spent in total
 
 
 ## Required Features
@@ -20,20 +20,20 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
-- [ ] **Add another API call and RecyclerView that lets the user interact with different data.**
-- [ ] **Add rounded corners to the images using the Glide transformations**
-- [ ] **Implement a shared element transition when user clicks into the details of a movie**
+- [X] **Add another API call and RecyclerView that lets the user interact with different data.**
+- [X] **Add rounded corners to the images using the Glide transformations**
+- [X] **Implement a shared element transition when user clicks into the details of a movie**
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [X] Bottom Navigation Bar to Switch between Tv Shows and Movies
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
 
-<img src='https://i.imgur.com/IzMOT2n.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/2Q8MtUI.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with
