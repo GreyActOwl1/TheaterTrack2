@@ -33,7 +33,8 @@ The following **additional** features are implemented:
 Here's a walkthrough of implemented user stories:
 
 
-<img src='https://i.imgur.com/2Q8MtUI.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+![Video Walkthrough](https://github.com/GreyActOwl1/TheaterTrack2/assets/106501057/d6c24309-f6c0-4f43-9d65-0b18529ab830)
+
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with
